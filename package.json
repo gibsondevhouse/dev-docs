@@ -1,0 +1,10 @@
+{
+  "name": "dev-docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run tauri dev --prefix dev-docs",
+    "build": "npm run tauri build --prefix dev-docs",
+    "sidecar": "cd dev-docs/src-python && uv run uvicorn main:app --host 127.0.0.1 --port 37421"
+  }
+}

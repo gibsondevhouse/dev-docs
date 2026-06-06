@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+
+if [[ -f "$script_dir/pyproject.toml" ]]; then
+  sidecar_dir="$script_dir"
+elif [[ -f "$script_dir/../../../src-python/pyproject.toml" ]]; then
+  sidecar_dir="$(cd "$script_dir/../../../src-python" && pwd)"
+else
+  echo "Unable to locate src-python/pyproject.toml" >&2
+  exit 1
+fi
+
+uv_bin="${UV_BIN:-$(command -v uv || true)}"
+if [[ -z "$uv_bin" && -x "$HOME/.local/bin/uv" ]]; then
+  uv_bin="$HOME/.local/bin/uv"
+fi
+
+if [[ -z "$uv_bin" ]]; then
+  echo "uv is required to start the Plan Builder sidecar" >&2
+  exit 1
+fi
+
+cd "$sidecar_dir"
+
+# If something is already listening on 37421, kill it first
+if lsof -i :37421 -sTCP:LISTEN -t &>/dev/null; then
+  lsof -i :37421 -sTCP:LISTEN -t | xargs kill -9 2>/dev/null || true
+  sleep 0.5
+fi
+
+exec "$uv_bin" run uvicorn main:app --host 127.0.0.1 --port 37421 --log-level warning

@@ -1,0 +1,25 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - navigation [ref=e5]:
+      - button "Chat" [ref=e6] [cursor=pointer]:
+        - img [ref=e7]
+      - button "Repos" [ref=e9] [cursor=pointer]:
+        - img [ref=e10]
+      - button "Settings" [ref=e12] [cursor=pointer]:
+        - img [ref=e13]
+  - main [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]: OpenRouter API Key
+        - textbox "OpenRouter API Key" [ref=e21]:
+          - /placeholder: sk-or-...
+      - generic [ref=e22]:
+        - generic [ref=e23]: Model
+        - combobox "Model" [ref=e24]:
+          - option "anthropic/claude-3.5-sonnet" [selected]
+          - option "anthropic/claude-3-haiku"
+          - option "openai/gpt-4o"
+          - option "openai/gpt-4o-mini"
+          - option "google/gemini-pro-1.5"
+          - option "meta-llama/llama-3.1-70b-instruct"
+      - button "Save" [ref=e26] [cursor=pointer]
