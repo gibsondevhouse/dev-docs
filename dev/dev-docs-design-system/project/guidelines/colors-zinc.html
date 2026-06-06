@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x130" name="Zinc ramp" subtitle="Chrome neutral — sidebar rail & terminal/log surfaces" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--background); color: var(--foreground); padding: 20px; }
+  .ramp { display: flex; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); }
+  .step { flex: 1; height: 64px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 6px; font-family: var(--font-mono); font-size: var(--text-2xs); }
+</style>
+</head>
+<body>
+  <div class="ramp">
+    <div class="step" style="background:var(--zinc-50);color:#52525b">50</div>
+    <div class="step" style="background:var(--zinc-100);color:#52525b">100</div>
+    <div class="step" style="background:var(--zinc-200);color:#52525b">200</div>
+    <div class="step" style="background:var(--zinc-300);color:#3f3f46">300</div>
+    <div class="step" style="background:var(--zinc-400);color:#fff">400</div>
+    <div class="step" style="background:var(--zinc-500);color:#fff">500</div>
+    <div class="step" style="background:var(--zinc-600);color:#fff">600</div>
+    <div class="step" style="background:var(--zinc-700);color:#fff">700</div>
+    <div class="step" style="background:var(--zinc-800);color:#fff">800</div>
+    <div class="step" style="background:var(--zinc-900);color:#fff">900</div>
+    <div class="step" style="background:var(--zinc-950);color:#fff">950</div>
+  </div>
+</body>
+</html>

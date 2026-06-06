@@ -36,7 +36,154 @@ body,
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
+
+    /* ---- Slate ramp — primary neutral (content surfaces) ---- */
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
+    --slate-950: #020817;
+
+    /* ---- Zinc ramp — app chrome, sidebar rail & terminal ---- */
+    --zinc-50: #fafafa;
+    --zinc-100: #f4f4f5;
+    --zinc-200: #e4e4e7;
+    --zinc-300: #d4d4d8;
+    --zinc-400: #a1a1aa;
+    --zinc-500: #71717a;
+    --zinc-600: #52525b;
+    --zinc-700: #3f3f46;
+    --zinc-800: #27272a;
+    --zinc-900: #18181b;
+    --zinc-950: #09090b;
+
+    /* ---- Functional hues ---- */
+    --green-500: #22c55e;
+    --green-600: #16a34a;
+    --green-700: #15803d;
+    --red-500: #ef4444;
+    --red-600: #dc2626;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --amber-500: #f59e0b;
+    --amber-600: #d97706;
+    --amber-700: #b45309;
+
+    /* ---- Typography stacks ---- */
+    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+    /* ---- Type scale ---- */
+    --text-2xs: 0.6875rem;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+
+    /* ---- Weights ---- */
+    --weight-normal: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* ---- Line heights ---- */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-snug: 1.4;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.65;
+
+    /* ---- Letter spacing ---- */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.02em;
+    --tracking-caps: 0.06em;
+    --tracking-mono: -0.01em;
+
+    /* ---- Spacing scale (4px base, Tailwind-aligned) ---- */
+    --space-0: 0;
+    --space-px: 1px;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+
+    /* ---- Success ---- */
+    --success: 142 72% 29%;
+    --success-foreground: 0 0% 100%;
+
+    /* ---- Rail / terminal surfaces ---- */
+    --terminal-bg: #09090b;
+    --terminal-fg: #d4d4d8;
+    --rail-bg: #18181b;
+    --rail-border: #27272a;
+    --rail-icon: #a1a1aa;
+    --rail-icon-active: #ffffff;
+
+    /* ---- Chrome dimensions ---- */
+    --rail-width: 3.5rem;
+    --topbar-height: 3rem;
+    --control-height: 2.5rem;
+    --icon-button: 2.5rem;
+    --preview-width: 20rem;
+
+    /* ---- Radius ---- */
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-full: 9999px;
+
+    /* ---- Borders ---- */
+    --border-width: 1px;
+    --border-color: var(--border);
+
+    /* ---- Shadows — soft, sparing ---- */
+    --shadow-xs: 0 1px 2px 0 rgb(2 8 23 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(2 8 23 / 0.08), 0 1px 2px -1px rgb(2 8 23 / 0.08);
+    --shadow-md: 0 4px 12px -2px rgb(2 8 23 / 0.10), 0 2px 6px -2px rgb(2 8 23 / 0.06);
+    --shadow-lg: 0 12px 28px -8px rgb(2 8 23 / 0.18);
+    --shadow-focus: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+
+    /* ---- Motion — quick, functional, no bounce ---- */
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --duration-fast: 120ms;
+    --duration-base: 160ms;
+    --duration-slow: 240ms;
+
+    /* ---- Plan methodology: status colors ---- */
+    --status-active: #2563eb;
+    --status-queued: #64748b;
+    --status-complete: #16a34a;
+    --status-deferred: #b45309;
+    --status-blocked: #dc2626;
+    --status-active-soft: #e7effd;
+    --status-queued-soft: #eef1f5;
+    --status-complete-soft: #e6f4ec;
+    --status-deferred-soft: #f6ede1;
+    --status-blocked-soft: #fbe9e9;
+
+    /* ---- Plan methodology: type colors ---- */
+    --type-d: #2563eb;
+    --type-p: #2a9d8f;
+    --type-r: #d97706
   }
   .dark {
     --background: 222.2 84% 4.9%;

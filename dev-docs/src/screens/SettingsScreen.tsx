@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
 import { loadSettings, saveSettings, VALID_MODELS } from "@/lib/settings";
 import { testConnection } from "@/lib/api";
+import { Button } from "@/components/ui/button";
+import { Field, Input } from "@/components/ui/input";
+import { Select } from "@/components/ui/select";
 
 const MODEL_OPTIONS = VALID_MODELS;
 
@@ -27,8 +30,8 @@ export function SettingsScreen() {
 
         setOpenrouterApiKey(settings.openrouterApiKey);
         setSelectedModel(
-          MODEL_OPTIONS.includes(settings.selectedModel)
-            ? settings.selectedModel
+          MODEL_OPTIONS.includes(settings.selectedModel as typeof MODEL_OPTIONS[0])
+            ? (settings.selectedModel as typeof MODEL_OPTIONS[0])
             : MODEL_OPTIONS[0],
         );
         setRepoPath(settings.repoPath);
@@ -87,34 +90,21 @@ export function SettingsScreen() {
   return (
     <div className="max-w-2xl p-6">
       <form className="space-y-6" onSubmit={handleSubmit}>
-        <div className="space-y-2">
-          <label
-            className="block text-sm font-medium text-foreground"
-            htmlFor="openrouter-api-key"
-          >
-            OpenRouter API Key
-          </label>
-          <input
-            className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm outline-none ring-offset-background transition-colors placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        <Field label="OpenRouter API Key" htmlFor="openrouter-api-key">
+          <Input
             id="openrouter-api-key"
+            type="password"
+            mono
             onChange={(event) => setOpenrouterApiKey(event.currentTarget.value)}
             placeholder="sk-or-..."
-            type="password"
             value={openrouterApiKey}
           />
-        </div>
+        </Field>
 
-        <div className="space-y-2">
-          <label
-            className="block text-sm font-medium text-foreground"
-            htmlFor="selected-model"
-          >
-            Model
-          </label>
-          <select
-            className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm outline-none ring-offset-background transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        <Field label="Model" htmlFor="selected-model">
+          <Select
             id="selected-model"
-            onChange={(event) => setSelectedModel(event.currentTarget.value)}
+            onChange={(event) => setSelectedModel(event.currentTarget.value as typeof MODEL_OPTIONS[0])}
             value={selectedModel}
           >
             {MODEL_OPTIONS.map((model) => (
@@ -122,16 +112,11 @@ export function SettingsScreen() {
                 {model}
               </option>
             ))}
-          </select>
-        </div>
+          </Select>
+        </Field>
 
         <div className="space-y-3">
-          <button
-            className="h-10 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-            type="submit"
-          >
-            Save
-          </button>
+          <Button type="submit">Save</Button>
           <div className="min-h-5 text-sm">
             {isSaved && <span className="text-muted-foreground">Saved</span>}
             {saveError && <span className="text-destructive">{saveError}</span>}
@@ -139,14 +124,15 @@ export function SettingsScreen() {
         </div>
 
         <div className="space-y-3">
-          <button
-            className="h-10 rounded-md border border-input bg-background px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50"
+          <Button
+            variant="secondary"
+            loading={testStatus === "testing"}
             disabled={testStatus === "testing"}
             onClick={handleTestConnection}
             type="button"
           >
             {testStatus === "testing" ? "Testing…" : "Test Connection"}
-          </button>
+          </Button>
           <div aria-live="polite" className="min-h-5 text-sm">
             {testStatus === "success" && (
               <span className="font-medium text-green-600">Connected</span>

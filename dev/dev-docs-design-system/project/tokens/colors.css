@@ -1,0 +1,129 @@
+/* ============================================================
+   dev-docs — Color tokens
+   Source of truth: dev-docs/src/index.css (shadcn "slate" theme)
+   + Tailwind zinc ramp used directly in the app chrome/terminal.
+
+   Two layers:
+   1. Raw ramps (slate = content neutral, zinc = chrome/terminal).
+   2. Semantic roles. Each role ships in BOTH formats:
+      - "--x" hex, for design-system HTML/cards.
+      - "--x-hsl" channel triplet ("H S% L%"), drop-in compatible
+        with the real app's `hsl(var(--x))` Tailwind config.
+   ============================================================ */
+
+:root {
+  /* ---- Slate ramp — primary neutral (content surfaces) ---- */
+  --slate-50:  #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020817;
+
+  /* ---- Zinc ramp — app chrome, sidebar rail & terminal ---- */
+  --zinc-50:  #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+
+  /* ---- Functional hues ---- */
+  --green-500: #22c55e;
+  --green-600: #16a34a;   /* "Connected" success text */
+  --green-700: #15803d;
+  --red-500:   #ef4444;   /* shadcn --destructive */
+  --red-600:   #dc2626;
+  --blue-500:  #3b82f6;
+  --blue-600:  #2563eb;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --amber-700: #b45309;
+
+  /* ---- shadcn semantic roles (light) — hex ---- */
+  --background: #ffffff;
+  --foreground: #020817;
+  --card: #ffffff;
+  --card-foreground: #020817;
+  --popover: #ffffff;
+  --popover-foreground: #020817;
+  --primary: #0f172a;
+  --primary-foreground: #f8fafc;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --success: #16a34a;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #020817;
+
+  /* ---- shadcn semantic roles (light) — HSL channel triplets ----
+     Use as hsl(var(--primary-hsl)) — matches the live app verbatim.
+     @kind color (these are H S% L% channel triplets) */
+  --background-hsl: 0 0% 100%; /* @kind color */
+  --foreground-hsl: 222.2 84% 4.9%; /* @kind color */
+  --card-hsl: 0 0% 100%; /* @kind color */
+  --card-foreground-hsl: 222.2 84% 4.9%; /* @kind color */
+  --primary-hsl: 222.2 47.4% 11.2%; /* @kind color */
+  --primary-foreground-hsl: 210 40% 98%; /* @kind color */
+  --secondary-hsl: 210 40% 96.1%; /* @kind color */
+  --secondary-foreground-hsl: 222.2 47.4% 11.2%; /* @kind color */
+  --muted-hsl: 210 40% 96.1%; /* @kind color */
+  --muted-foreground-hsl: 215.4 16.3% 46.9%; /* @kind color */
+  --accent-hsl: 210 40% 96.1%; /* @kind color */
+  --accent-foreground-hsl: 222.2 47.4% 11.2%; /* @kind color */
+  --destructive-hsl: 0 84.2% 60.2%; /* @kind color */
+  --border-hsl: 214.3 31.8% 91.4%; /* @kind color */
+  --input-hsl: 214.3 31.8% 91.4%; /* @kind color */
+  --ring-hsl: 222.2 84% 4.9%; /* @kind color */
+
+  /* ---- Terminal / log surfaces (zinc, used as-is in the app) ---- */
+  --terminal-bg: #09090b;     /* zinc-950 — log panel background */
+  --terminal-fg: #d4d4d8;     /* zinc-300 — log text */
+  --rail-bg: #18181b;         /* zinc-900 — sidebar rail */
+  --rail-border: #27272a;     /* zinc-800 */
+  --rail-icon: #a1a1aa;       /* zinc-400 — inactive icon */
+  --rail-icon-active: #ffffff;
+
+  /* ---- Chart palette (shadcn defaults, kept verbatim) ---- */
+  --chart-1: #e8703a;
+  --chart-2: #2a9d8f;
+  --chart-3: #284b56;
+  --chart-4: #e9c46a;
+  --chart-5: #f4a261;
+
+  /* ---- Plan-methodology semantics ----
+     dev-docs organizes work as Plans with a status and a type.
+     These hues give the methodology a consistent visual language. */
+  --status-active:   #2563eb;  /* currently being worked on */
+  --status-queued:   #64748b;  /* ready to start when scheduled */
+  --status-complete: #16a34a;  /* done & archived */
+  --status-deferred: #b45309;  /* postponed */
+  --status-blocked:  #dc2626;  /* cannot continue */
+
+  --type-d: #2563eb;  /* development — new features, bug fixes */
+  --type-p: #2a9d8f;  /* polishing — UX, visuals, minor tweaks */
+  --type-r: #d97706;  /* refactoring — restructure, no behavior change */
+
+  /* Soft tints for status/type pills (12% over white) */
+  --status-active-soft:   #e7effd;
+  --status-queued-soft:   #eef1f5;
+  --status-complete-soft: #e6f4ec;
+  --status-deferred-soft: #f6ede1;
+  --status-blocked-soft:  #fbe9e9;
+}

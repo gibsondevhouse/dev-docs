@@ -1,12 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 import animate from "tailwindcss-animate"
 import typography from "@tailwindcss/typography"
+import defaultTheme from "tailwindcss/defaultTheme"
 
 export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+  			mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
+  		},
+  		width: {
+  			rail: 'var(--rail-width)',
+  			preview: 'var(--preview-width)',
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -52,6 +61,36 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			},
+  			success: {
+  				DEFAULT: 'hsl(var(--success))',
+  				foreground: 'hsl(var(--success-foreground))'
+  			},
+  			terminal: {
+  				bg: 'var(--terminal-bg)',
+  				fg: 'var(--terminal-fg)'
+  			},
+  			rail: {
+  				bg: 'var(--rail-bg)',
+  				border: 'var(--rail-border)',
+  				icon: 'var(--rail-icon)'
+  			},
+  			status: {
+  				active: 'var(--status-active)',
+  				queued: 'var(--status-queued)',
+  				complete: 'var(--status-complete)',
+  				deferred: 'var(--status-deferred)',
+  				blocked: 'var(--status-blocked)',
+  				'active-soft': 'var(--status-active-soft)',
+  				'queued-soft': 'var(--status-queued-soft)',
+  				'complete-soft': 'var(--status-complete-soft)',
+  				'deferred-soft': 'var(--status-deferred-soft)',
+  				'blocked-soft': 'var(--status-blocked-soft)'
+  			},
+  			type: {
+  				d: 'var(--type-d)',
+  				p: 'var(--type-p)',
+  				r: 'var(--type-r)'
   			}
   		}
   	}

@@ -1,0 +1,16 @@
+/* ============================================================
+   dev-docs Design System — global entry point
+   Consumers link THIS file. It is an index of @imports only.
+
+   dev-docs ("Plan Builder") is a Tauri desktop app for vibe-coders:
+   plain-English in, structured agent-executable plans out, grounded
+   in your real codebase via RAG. Visual identity = shadcn "slate"
+   on a light content area, a dark zinc chrome rail + terminal,
+   Lucide icons, and a document-first, monospace-accented voice.
+
+   No @font-face: dev-docs renders in the OS-native UI & mono stacks.
+   ============================================================ */
+
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";

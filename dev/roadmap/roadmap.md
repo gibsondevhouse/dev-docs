@@ -6,7 +6,11 @@
 
 ## What This Project Is
 
-dev-docs is a desktop app for vibe-coders who know what they want but struggle to articulate it technically. You have a plain-English conversation with DeepSeek, it reads your actual codebase via RAG, and it generates a structured, agent-executable plan in the dev-docs template format. The output lands on disk ready for an AI coding agent to execute — no manual writing required.
+**dev-docs** (the in-app product is called **Plan Builder**) is a Tauri desktop app for *vibe-coders* — people who know what they want to build but struggle to articulate it technically. You have a plain-English conversation with an LLM; it reads your **actual codebase via RAG**; and it generates a structured, **agent-executable plan** in the dev-docs template format. The plan lands on disk ready for an AI coding agent to execute — no manual writing required.
+
+The product is one solo developer's planning methodology, expanded into an app. Work is organized as **Plans**, broken down **Stages → Phases → Parts**, with three plan types (`d` development · `p` polishing · `r` refactoring) and clear lifecycle statuses (Queued → Active → Complete → Archived · or Deferred).
+
+**One product, three screens:** **Chat** (have a conversation to build a plan), **Repos** (index a local codebase for RAG), **Settings** (API key + model). A 56px dark icon rail switches between them; the content area is light.
 
 ---
 
@@ -28,23 +32,29 @@ _Every feature or capability this project has or is intended to have, organized 
 
 ### Built — Fully implemented and working
 
-- [Feature name]: [One-line description]
+- **Desktop shell (d-001):** Tauri 2 app with three-screen layout, 56px dark icon rail, screen routing — fully functional.
+- **Settings screen:** OpenRouter API key entry, macOS Keychain storage via Tauri, connection test button, model selector — fully functional.
 
 ### Scaffolded — Exists in the code but incomplete or not functional
 
-- [Feature name]: [One-line description of what's there and what's missing]
+- **Chat screen:** UI shell (`ChatView`, `MessageList`, `InputBar`, preview pane) exists; LLM streaming and plan-preview rendering not yet wired to the backend.
+- **Repos screen:** UI shell exists; folder picker and indexing log UI present; RAG indexing not yet connected to the Python sidecar.
+- **Python sidecar:** FastAPI app with `routers/chat.py`, `routers/index_repo.py`, `routers/search.py` stubbed out; OpenRouter streaming and ChromaDB indexing not yet wired to the frontend.
+
+### Active — Being built now
+
+- **Chat and RAG (d-002):** OpenRouter streaming chat, full RAG pipeline over local repo via ChromaDB + LlamaIndex, plan preview generation. See `active-plan.md`.
 
 ### Planned — Decided, not yet started
 
-- [Feature name]: [One-line description]
-
-### Conceptual — Ideas being considered, not yet decided
-
-- [Feature name]: [One-line description and any open questions]
+- **Vibe Planner (d-003):** Higher-level conversational planning flow — describe what you want in plain English, get a fully structured plan file generated in the dev-docs template format.
 
 ### Out of scope — Explicitly decided NOT to build
 
-- [Feature name]: [One-line reason why]
+- **Web / cloud version:** This is a local desktop tool. No server-side user data, no SaaS.
+- **Multi-user / team features:** Designed for a single developer's workflow.
+- **Non-local repos:** RAG indexes codebases on disk only — no remote Git cloning at index time.
+- **Built-in plan editor:** Plans are plain Markdown on disk; the user edits them in their own editor.
 
 ---
 
@@ -52,5 +62,6 @@ _Every feature or capability this project has or is intended to have, organized 
 
 _Unresolved decisions that will affect what gets built. These should be answered before related plans are started._
 
-- [Question 1]
-- [Question 2]
+- **Plan export format:** Should the generated plan be written directly to `dev/plans/d-plns/` in the user's indexed repo, or saved to a user-configured output path?
+- **Model flexibility:** DeepSeek is primary, but should the UI expose a free-form model ID field (for any OpenRouter model) or a curated dropdown?
+- **d-003 scope:** Does Vibe Planner replace the Chat screen, extend it, or become a separate screen?

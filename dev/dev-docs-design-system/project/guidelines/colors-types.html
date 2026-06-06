@@ -1,0 +1,23 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Plan types" subtitle="d development · p polishing · r refactoring — the plan-folder prefixes" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--background); color: var(--foreground); padding: 22px; }
+  .row { display: flex; gap: 14px; }
+  .type { flex: 1; display: flex; align-items: center; gap: 11px; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius); }
+  .tag { width: 30px; height: 30px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: var(--weight-bold); color: #fff; font-size: var(--text-base); }
+  .lab { font-size: var(--text-sm); font-weight: var(--weight-semibold); }
+  .sub { font-size: var(--text-2xs); color: var(--muted-foreground); margin-top: 1px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="type"><span class="tag" style="background:var(--type-d)">d</span><div><div class="lab">Development</div><div class="sub">features · bug fixes</div></div></div>
+    <div class="type"><span class="tag" style="background:var(--type-p)">p</span><div><div class="lab">Polishing</div><div class="sub">UX · visuals · tweaks</div></div></div>
+    <div class="type"><span class="tag" style="background:var(--type-r)">r</span><div><div class="lab">Refactoring</div><div class="sub">restructure · no behavior change</div></div></div>
+  </div>
+</body>
+</html>

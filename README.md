@@ -1,6 +1,8 @@
-# Dev Docs
+# dev-docs
 
-A desktop app for vibe-coders. Describe what you want in plain English, and **Plan Builder** reads your actual codebase via RAG and generates structured, agent-executable plans — no manual writing required.
+**dev-docs** (the in-app product is called **Plan Builder**) is a Tauri desktop app for *vibe-coders* — people who know what they want to build but struggle to articulate it technically. You have a plain-English conversation with an LLM; it reads your **actual codebase via RAG**; and it generates a structured, **agent-executable plan** in the dev-docs template format. The plan lands on disk ready for an AI coding agent to execute — no manual writing required.
+
+**Three screens:** **Chat** (bui, ld a plan), **Repos** (index a local codebase), **Settings** (API key + model).
 
 ---
 
@@ -11,6 +13,7 @@ dev-docs/           ← Tauri desktop app (source)
 dev/
   plans/            ← Active and archived development plans
   roadmap/          ← Project-level direction and vision
+  dev-docs-design-system/ ← Brand & UI design system (source of truth)
 package.json        ← Root scripts (dev, build, sidecar)
 ```
 
@@ -21,7 +24,8 @@ package.json        ← Root scripts (dev, build, sidecar)
 | Layer | Technology |
 | --- | --- |
 | Desktop runtime | Tauri 2 (Rust) |
-| Frontend | React 19 + TypeScript + Tailwind CSS + Vite |
+| Frontend | React 19 + TypeScript + Tailwind CSS + Vite + shadcn/ui |
+| Icons | lucide-react |
 | AI sidecar | FastAPI + Python 3.11+ |
 | Vector store | ChromaDB via LlamaIndex |
 | LLM provider | OpenRouter (DeepSeek-first) |

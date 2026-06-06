@@ -1,0 +1,20 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Motion" subtitle="Quick, functional, no bounce — transition-colors ~160ms · spinner for in-flight" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--background); color: var(--foreground); padding: 22px; display: flex; align-items: center; gap: 30px; }
+  .spin { width: 22px; height: 22px; border: 2px solid var(--slate-300); border-top-color: var(--primary); border-radius: 50%; animation: s 0.7s linear infinite; }
+  @keyframes s { to { transform: rotate(360deg); } }
+  .hov { height: 40px; padding: 0 16px; display: inline-flex; align-items: center; border-radius: var(--radius-md); background: var(--primary); color: var(--primary-foreground); font-size: var(--text-sm); font-weight: var(--weight-medium); transition: background var(--duration-base) var(--ease-standard); }
+  .meta { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--muted-foreground); }
+</style>
+</head>
+<body>
+  <div style="text-align:center"><div class="spin"></div><div class="meta" style="margin-top:10px">in-flight</div></div>
+  <div style="text-align:center"><span class="hov">Index Folder</span><div class="meta" style="margin-top:10px">--duration-base 160ms</div></div>
+  <div class="meta" style="line-height:1.7">--ease-standard<br/>cubic-bezier(.4,0,.2,1)<br/>hover = color shift, no scale</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- @dsCard group="Brand" viewport="700x180" name="Wordmark" subtitle="Lowercase, system font, slate-900 — the repo ships no logo asset" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--background); color: var(--foreground); padding: 26px; display: flex; align-items: center; gap: 40px; }
+  .mark { font-size: 40px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-tight); color: var(--slate-900); }
+  .markmono { font-family: var(--font-mono); font-size: 34px; font-weight: var(--weight-medium); color: var(--slate-900); }
+  .dark { background: var(--rail-bg); color: #fff; padding: 20px 26px; border-radius: var(--radius); }
+  .dark .markmono { color: #fff; }
+  .lab { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--muted-foreground); margin-top: 8px; }
+</style>
+</head>
+<body>
+  <div>
+    <div class="mark">dev-docs</div>
+    <div class="lab">sans · primary</div>
+  </div>
+  <div>
+    <div class="dark"><span class="markmono">dev-docs</span></div>
+    <div class="lab">mono · on rail</div>
+  </div>
+</body>
+</html>

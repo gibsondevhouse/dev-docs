@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
 import { InputBar } from "@/components/chat/InputBar";
 import { MessageList } from "@/components/chat/MessageList";
+import { Button } from "@/components/ui/button";
 import { streamChat } from "@/lib/api";
 import { loadSettings } from "@/lib/settings";
 import { useChatStore } from "@/store/chatStore";
@@ -66,23 +67,23 @@ export function ChatView() {
     <div className="flex h-full min-h-0">
       {/* Chat pane */}
       <div className="flex min-h-0 flex-1 flex-col">
-        <div className="flex h-12 shrink-0 items-center justify-between border-b px-4">
+        <div className="flex h-[var(--topbar-height)] shrink-0 items-center justify-between border-b px-4">
           <span className="text-sm font-medium">Chat</span>
-          <button
-            className="text-xs text-muted-foreground hover:text-foreground"
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={clearHistory}
-            type="button"
           >
             Clear
-          </button>
+          </Button>
         </div>
         <MessageList messages={messages} ref={bottomRef} />
         <InputBar disabled={isStreaming} onSend={handleSend} />
       </div>
 
       {/* Preview pane placeholder */}
-      <div className="flex w-80 shrink-0 flex-col border-l">
-        <div className="flex h-12 shrink-0 items-center border-b px-4">
+      <div className="flex w-[var(--preview-width)] shrink-0 flex-col border-l">
+        <div className="flex h-[var(--topbar-height)] shrink-0 items-center border-b px-4">
           <span className="text-sm font-medium text-muted-foreground">Preview</span>
         </div>
         <div className="flex flex-1 items-center justify-center p-4 text-sm text-muted-foreground">

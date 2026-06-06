@@ -1,0 +1,25 @@
+<!-- @dsCard group="Spacing" viewport="700x170" name="Chrome dimensions" subtitle="Fixed app metrics lifted from the build — rail, topbar, controls" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-mono); background: var(--background); color: var(--foreground); padding: 22px; font-size: var(--text-xs); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; }
+  .r { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid var(--border); }
+  .k { color: var(--foreground); }
+  .v { color: var(--muted-foreground); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="r"><span class="k">--rail-width</span><span class="v">56px</span></div>
+    <div class="r"><span class="k">--topbar-height</span><span class="v">48px</span></div>
+    <div class="r"><span class="k">--control-height</span><span class="v">40px</span></div>
+    <div class="r"><span class="k">--icon-button</span><span class="v">40px</span></div>
+    <div class="r"><span class="k">--preview-width</span><span class="v">320px</span></div>
+    <div class="r"><span class="k">screen padding</span><span class="v">24px · p-6</span></div>
+  </div>
+</body>
+</html>

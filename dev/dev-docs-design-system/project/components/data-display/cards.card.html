@@ -1,0 +1,62 @@
+<!-- @dsCard group="Components" viewport="700x360" name="Cards, Badges & Status" subtitle="Card surface + Badge + the plan StatusBadge / PlanTypeTag" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--secondary); color: var(--foreground); padding: 24px; }
+  .eyebrow { font-family: var(--font-mono); font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: var(--tracking-caps); color: var(--muted-foreground); margin: 0 0 10px; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
+  .planrow { display: flex; align-items: center; gap: 12px; }
+  .planid { font-family: var(--font-mono); font-size: var(--text-sm); }
+  .grow { flex: 1; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script type="text/babel" data-presets="react">
+    const { Card, Badge, StatusBadge, PlanTypeTag } = window.DevDocsDesignSystem_300643;
+    function Demo() {
+      return (
+        <div>
+          <p className="eyebrow">Status & type</p>
+          <div className="row">
+            <StatusBadge status="queued" />
+            <StatusBadge status="active" />
+            <StatusBadge status="complete" />
+            <StatusBadge status="deferred" />
+            <StatusBadge status="blocked" />
+            <PlanTypeTag type="d" /><PlanTypeTag type="p" /><PlanTypeTag type="r" />
+          </div>
+          <p className="eyebrow">Badges</p>
+          <div className="row">
+            <Badge variant="default">default</Badge>
+            <Badge variant="secondary" mono>d-002</Badge>
+            <Badge variant="outline">outline</Badge>
+            <Badge variant="muted">2 plans</Badge>
+            <Badge variant="success" dot>Connected</Badge>
+            <Badge variant="destructive" dot>Error</Badge>
+          </div>
+          <p className="eyebrow">Card — a plan row</p>
+          <Card>
+            <div className="planrow">
+              <PlanTypeTag type="d" size="lg" />
+              <div className="grow">
+                <div className="planid">d-002-chat-and-rag</div>
+                <div style={{fontSize:"var(--text-xs)",color:"var(--muted-foreground)",marginTop:2}}>Connection test · streaming chat · RAG indexing</div>
+              </div>
+              <StatusBadge status="active" />
+            </div>
+          </Card>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+  </script>
+</body>
+</html>

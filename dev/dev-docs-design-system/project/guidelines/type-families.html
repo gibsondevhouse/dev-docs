@@ -1,0 +1,28 @@
+<!-- @dsCard group="Type" viewport="700x180" name="Families" subtitle="System-native: OS UI font for chrome, native mono for code & plan IDs" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--background); color: var(--foreground); padding: 22px; }
+  .stack { display: flex; flex-direction: column; gap: 18px; }
+  .lab { font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--muted-foreground); text-transform: uppercase; letter-spacing: var(--tracking-caps); margin-bottom: 6px; }
+  .sans { font-family: var(--font-sans); font-size: 30px; font-weight: var(--weight-medium); letter-spacing: var(--tracking-tight); }
+  .mono { font-family: var(--font-mono); font-size: 26px; }
+  .meta { font-size: var(--text-2xs); color: var(--muted-foreground); font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div>
+      <div class="lab">--font-sans · system-ui</div>
+      <div class="sans">Plain English in, structured plans out</div>
+    </div>
+    <div>
+      <div class="lab">--font-mono · ui-monospace</div>
+      <div class="mono">d-002-chat-and-rag · active-plan.md</div>
+    </div>
+  </div>
+</body>
+</html>

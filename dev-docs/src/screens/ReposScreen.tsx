@@ -3,6 +3,8 @@ import { appDataDir } from "@tauri-apps/api/path";
 import { useEffect, useRef, useState } from "react";
 import { streamIndex } from "@/lib/api";
 import { loadSettings, saveSettings } from "@/lib/settings";
+import { Button } from "@/components/ui/button";
+import { Field, Input } from "@/components/ui/input";
 
 export function ReposScreen() {
   const [selectedPath, setSelectedPath] = useState<string | null>(null);
@@ -63,35 +65,34 @@ export function ReposScreen() {
 
   return (
     <div className="max-w-2xl space-y-6 p-6">
-      <div className="space-y-2">
-        <label className="block text-sm font-medium">Repository Folder</label>
+      <Field label="Repository Folder" htmlFor="repo-path">
         <div className="flex gap-2">
-          <div className="flex h-10 flex-1 items-center rounded-md border border-input bg-background px-3 text-sm text-muted-foreground">
-            {selectedPath ?? "No folder selected"}
-          </div>
-          <button
-            className="h-10 rounded-md border border-input bg-background px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            onClick={handleBrowse}
-            type="button"
-          >
+          <Input
+            id="repo-path"
+            readOnly
+            value={selectedPath ?? ""}
+            placeholder="No folder selected"
+            className="flex-1"
+          />
+          <Button variant="secondary" onClick={handleBrowse} type="button">
             Browse
-          </button>
+          </Button>
         </div>
-      </div>
+      </Field>
 
-      <button
-        className="h-10 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
+      <Button
         disabled={!selectedPath || isIndexing}
+        loading={isIndexing}
         onClick={handleIndex}
         type="button"
       >
         {isIndexing ? "Indexing…" : "Index Folder"}
-      </button>
+      </Button>
 
       {progressLines.length > 0 && (
         <div
           ref={logRef}
-          className="h-48 overflow-y-auto rounded-md border bg-zinc-950 p-3 font-mono text-xs text-zinc-300"
+          className="h-48 overflow-y-auto rounded-md border bg-[var(--terminal-bg)] p-3 font-mono text-xs text-[var(--terminal-fg)]"
         >
           {progressLines.map((line, i) => (
             // eslint-disable-next-line react/no-array-index-key

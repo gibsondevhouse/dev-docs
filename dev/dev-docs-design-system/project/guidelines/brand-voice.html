@@ -1,0 +1,32 @@
+<!-- @dsCard group="Brand" viewport="700x230" name="Voice & microcopy" subtitle="Two registers: terse product UI · imperative 'for the agent' docs" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--background); color: var(--foreground); padding: 22px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .eyebrow { font-family: var(--font-mono); font-size: var(--text-2xs); text-transform: uppercase; letter-spacing: var(--tracking-caps); color: var(--muted-foreground); margin-bottom: 10px; }
+  .chip { display: inline-block; font-size: var(--text-xs); font-weight: var(--weight-medium); background: var(--secondary); border-radius: var(--radius-sm); padding: 4px 9px; margin: 0 5px 6px 0; }
+  .quote { font-size: var(--text-sm); line-height: var(--leading-snug); color: var(--foreground); }
+  .quote .for { color: var(--foreground); font-weight: var(--weight-semibold); }
+  .quote .dim { color: var(--muted-foreground); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div>
+      <div class="eyebrow">Product UI · terse</div>
+      <span class="chip">Browse</span><span class="chip">Index Folder</span><span class="chip">Indexing…</span><span class="chip">Test Connection</span><span class="chip">Connected</span><span class="chip">Clear</span>
+      <div class="quote" style="margin-top:10px"><span class="dim">“Start chatting to build a plan.”</span></div>
+    </div>
+    <div>
+      <div class="eyebrow">Docs · imperative</div>
+      <div class="quote"><span class="for">For the agent:</span> <span class="dim">Read this once to understand the system.</span></div>
+      <div class="quote" style="margin-top:10px"><span class="dim">“Never work outside the scope of the active plan.”</span></div>
+      <div class="quote" style="margin-top:10px"><span class="dim">“Always read </span><code style="font-family:var(--font-mono);font-size:var(--text-xs)">active-plan.md</code><span class="dim"> before starting.”</span></div>
+    </div>
+  </div>
+</body>
+</html>
