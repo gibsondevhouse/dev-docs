@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
+import { EmptyState } from "@/components/chat/EmptyState";
 import { InputBar } from "@/components/chat/InputBar";
 import { MessageList } from "@/components/chat/MessageList";
 import { Button } from "@/components/ui/button";
@@ -63,22 +64,29 @@ export function ChatView() {
     }
   }
 
+  const hasMessages = messages.length > 0;
+
   return (
     <div className="flex h-full min-h-0">
       {/* Chat pane */}
       <div className="flex min-h-0 flex-1 flex-col">
-        <div className="flex h-[var(--topbar-height)] shrink-0 items-center justify-between border-b px-4">
-          <span className="text-sm font-medium">Chat</span>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={clearHistory}
-          >
-            Clear
-          </Button>
-        </div>
-        <MessageList messages={messages} ref={bottomRef} />
-        <InputBar disabled={isStreaming} onSend={handleSend} />
+        {hasMessages && (
+          <div className="flex h-[var(--topbar-height)] shrink-0 items-center justify-between border-b px-4">
+            <span className="text-sm font-medium">Chat</span>
+            <Button variant="ghost" size="sm" onClick={clearHistory}>
+              Clear
+            </Button>
+          </div>
+        )}
+
+        {hasMessages ? (
+          <>
+            <MessageList messages={messages} ref={bottomRef} />
+            <InputBar disabled={isStreaming} onSend={handleSend} />
+          </>
+        ) : (
+          <EmptyState disabled={isStreaming} onSend={handleSend} />
+        )}
       </div>
 
       {/* Preview pane placeholder */}
